@@ -3,7 +3,7 @@ void main(){
     String[] nomes = new String[10];
     int[] idades = new int[10];
     String[] cursos = new String[10];
-    int totalAlunos = 0;
+    int totaldeAlunos = 0;
     int opcao;
 
     do {
@@ -22,7 +22,7 @@ void main(){
 
             case 1:
 
-                if (totalAlunos >= nomes.length) {
+                if (totaldeAlunos >= nomes.length) {
                     println("Limite máximo de alunos atingido.");
                     break;
                 }
@@ -44,11 +44,11 @@ void main(){
                 print("Curso: ");
                 String curso = readln();
 
-                nomes[totalAlunos] = nome;
-                idades[totalAlunos] = idade;
-                cursos[totalAlunos] = curso;
+                nomes[totaldeAlunos] = nome;
+                idades[totaldeAlunos] = idade;
+                cursos[totaldeAlunos] = curso;
 
-                totalAlunos++;
+                totaldeAlunos++;
 
                 println("Aluno cadastrado!");
                 break;
@@ -57,11 +57,11 @@ void main(){
 
                 println("===== LISTA DE ALUNOS =====");
 
-                if (totalAlunos == 0) {
+                if (totaldeAlunos == 0) {
                     println("Nenhum aluno cadastrado.");
                 } else {
 
-                    for (int i = 0; i < totalAlunos; i++) {
+                    for (int i = 0; i < totaldeAlunos; i++) {
 
                         println("===== Aluno " + (i + 1)+" =====");
                         println("Nome: " + nomes[i]);
@@ -74,31 +74,31 @@ void main(){
 
             case 3:
 
-                if (totalAlunos == 0) {
+                if (totaldeAlunos == 0) {
                     println("Nenhum aluno cadastrado.");
                     break;
                 }
 
                 print("Digite o nome do aluno: ");
-                String nomeBusca = readln();
+                String nomeparaBuscar = readln();
 
-                boolean encontrado = false;
+                boolean encontrar = false;
 
-                for (int i = 0; i < totalAlunos; i++) {
+                for (int i = 0; i < totaldeAlunos; i++) {
 
-                    if (nomes[i].equalsIgnoreCase(nomeBusca)) {
+                    if (nomes[i].equalsIgnoreCase(nomeparaBuscar)) {
 
                         println("Aluno encontrado!");
                         println("Nome: " + nomes[i]);
                         println("Idade: " + idades[i]);
                         println("Curso: " + cursos[i]);
 
-                        encontrado = true;
+                        encontrar = true;
                         break;
                     }
                 }
 
-                if (!encontrado) {
+                if (!encontrar) {
                     println("Aluno não encontrado.");
                 }
 
@@ -106,19 +106,19 @@ void main(){
 
             case 4:
 
-                if (totalAlunos == 0) {
+                if (totaldeAlunos == 0) {
                     println("Nenhum aluno cadastrado.");
                     break;
                 }
 
                 print("Digite o nome do aluno que quer remover: ");
-                String nomeRemover = readln();
+                String nomeparaRemover = readln();
 
                 int indice = -1;
 
-                for (int i = 0; i < totalAlunos; i++) {
+                for (int i = 0; i < totaldeAlunos; i++) {
 
-                    if (nomes[i].equalsIgnoreCase(nomeRemover)) {
+                    if (nomes[i].equalsIgnoreCase(nomeparaRemover)) {
                         indice = i;
                         break;
                     }
@@ -136,21 +136,21 @@ void main(){
                     println("Curso: " + cursos[indice]);
 
                     print("Deseja realmente remover este aluno? (S/N): ");
-                    String confirmacao = readln();
+                    String confirmar = readln();
 
-                    if (confirmacao.equalsIgnoreCase("S")) {
+                    if (confirmar.equalsIgnoreCase("S")) {
 
-                        for (int i = indice; i < totalAlunos - 1; i++) {
+                        for (int i = indice; i < totaldeAlunos - 1; i++) {
                             nomes[i] = nomes[i + 1];
                             idades[i] = idades[i + 1];
                             cursos[i] = cursos[i + 1];
                         }
 
-                        nomes[totalAlunos - 1] = null;
-                        cursos[totalAlunos - 1] = null;
-                        idades[totalAlunos - 1] = 0;
+                        nomes[totaldeAlunos - 1] = null;
+                        cursos[totaldeAlunos - 1] = null;
+                        idades[totaldeAlunos - 1] = 0;
 
-                        totalAlunos--;
+                        totaldeAlunos--;
 
                         println("Aluno removido!");
 
